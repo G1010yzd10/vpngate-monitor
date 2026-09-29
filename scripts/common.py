@@ -21,7 +21,7 @@ import json
 import os
 import re
 import socket
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 # ----------------------------------------------------------------- constants
 
@@ -51,6 +51,8 @@ INT_FIELDS = {
     "TotalUsers", "TotalTraffic",
 }
 PUBLIC_FIELDS = [f for f in CSV_FIELDS if f != "OpenVPN_ConfigData_Base64"]
+# extra derived columns written into servers_clean.csv
+EXT_PUBLIC_FIELDS = PUBLIC_FIELDS + ["Proto", "Port"]
 
 DEFAULTS = {
     "connect_timeout": 25,     # s: wait for "Initialization Sequence Completed"
@@ -59,8 +61,10 @@ DEFAULTS = {
     "speed_timeout": 22,       # s: throughput budget
     "workers": 48,             # parallel isolated tunnels
     "keep_archive": 360,       # csv.gz snapshots kept in archive/
-    "min_rows": 100,           # refuse to replace good data with anything smaller
+    "min_rows": 50,            # refuse to replace good data with anything smaller
     "history_cap": 2000,       # max lines kept in data/history.jsonl
+    "recall_days": 30,         # keep re-testing servers seen in the API within N days
+    "registry_cap": 3000,      # hard cap on remembered servers
 }
 
 # ---------------------------------------------------------------------- time
@@ -191,7 +195,13 @@ def write_json(path: str, obj):
 
 
 def _public_rows(servers):
-    return [[str(s.get(f, "")) for f in PUBLIC_FIELDS] for s in servers]
+    rows = []
+    for s in servers:
+        row = [str(s.get(f, "")) for f in PUBLIC_FIELDS]
+        row.append(str(s.get("_proto") or s.get("proto") or ""))
+        row.append(str(s.get("_port") or s.get("port") or ""))
+        rows.append(row)
+    return rows
 
 
 def write_public_csv(path: str, servers):
@@ -199,7 +209,7 @@ def write_public_csv(path: str, servers):
     tmp = path + ".tmp"
     with open(tmp, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f, lineterminator="\n")
-        w.writerow(PUBLIC_FIELDS)
+        w.writerow(EXT_PUBLIC_FIELDS)
         w.writerows(_public_rows(servers))
     os.replace(tmp, path)
 
@@ -209,7 +219,7 @@ def write_public_csv_gz(path: str, servers):
     tmp = path + ".tmp"
     with gzip.open(tmp, "wt", newline="", encoding="utf-8", compresslevel=9) as f:
         w = csv.writer(f, lineterminator="\n")
-        w.writerow(PUBLIC_FIELDS)
+        w.writerow(EXT_PUBLIC_FIELDS)
         w.writerows(_public_rows(servers))
     os.replace(tmp, path)
 
@@ -295,6 +305,108 @@ def spark(series):
     if hi == lo:
         return "▄" * len(vals)
     return "".join(blocks[min(7, int(8 * (v - lo) / (hi - lo)))] for v in vals)
+
+
+# ------------------------------------------------------------- openvpn cfg
+
+
+def extract_proto_port(cfg_text):
+    """Pull (proto, port) out of a decoded VPN Gate OpenVPN config."""
+    p = re.search(r"(?mi)^\s*proto\s+(\S+)", cfg_text)
+    r = re.search(r"(?mi)^\s*remote\s+(\S+)\s+(\d+)", cfg_text)
+    proto = p.group(1).lower() if p else None
+    port = int(r.group(2)) if r else None
+    return proto, port
+
+
+def extract_template(cfg_text):
+    """Strip the server-specific remote/proto lines, keeping the shared
+    skeleton. VPN Gate ships the SAME CA / dummy client cert & key in every
+    config, so any server can be dialled with template + remote line."""
+    t = re.sub(r"(?mi)^\s*remote\s+\S+\s+\d+\s*$", "", cfg_text)
+    t = re.sub(r"(?mi)^\s*proto\s+\S+\s*$", "", t)
+    return t.strip() + "\n"
+
+
+def build_config_from_template(template, proto, ip, port):
+    return f"proto {proto}\nremote {ip} {port}\n" + template
+
+
+# ----------------------------------------------------------------- registry
+
+
+def load_registry(path):
+    """The registry remembers every server that ever appeared in the API."""
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            reg = json.load(f)
+        return reg if isinstance(reg, dict) else {}
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def save_registry(path, reg):
+    write_json(path, reg)
+
+
+def update_registry(reg, servers, now_iso):
+    for s in servers:
+        key = f"{s['HostName']}|{s['IP']}"
+        e = reg.get(key)
+        if e is None:
+            e = {f: s.get(f, "") for f in PUBLIC_FIELDS}
+            e["first_seen"] = now_iso
+            e["occurrences"] = 0
+            reg[key] = e
+        for f in PUBLIC_FIELDS:
+            e[f] = s.get(f, e.get(f, ""))
+        if s.get("_proto"):
+            e["proto"] = s["_proto"]
+        if s.get("_port"):
+            e["port"] = s["_port"]
+        e["last_seen"] = now_iso
+        e["occurrences"] = e.get("occurrences", 0) + 1
+
+
+def prune_registry(reg, recall_days, cap=None):
+    """Drop servers whose last API appearance is older than recall_days
+    (and enforce a hard cap). Returns number of entries removed."""
+    cap = cap or DEFAULTS["registry_cap"]
+    cutoff = (utcnow() - timedelta(days=max(0, recall_days))).strftime(
+        "%Y-%m-%dT%H:%M:%SZ")
+    stale = [k for k, e in reg.items()
+             if (e.get("last_seen") or "") < cutoff]
+    for k in stale:
+        del reg[k]
+    removed = len(stale)
+    if len(reg) > cap:
+        for k in sorted(reg, key=lambda k: reg[k].get("last_seen") or "")[: len(reg) - cap]:
+            del reg[k]
+            removed += 1
+    return removed
+
+
+def build_test_plan(reg, current_servers):
+    """Everything that must be REAL-tested this run: every current server
+    plus every server remembered from the last recall_days days."""
+    current_keys = {(s["HostName"], s["IP"]) for s in current_servers}
+    plan = []
+    for key, e in reg.items():
+        host, ip = key.split("|", 1)
+        if not e.get("proto") or not e.get("port"):
+            continue  # never had a dialable endpoint
+        plan.append({
+            **{f: e.get(f, "") for f in PUBLIC_FIELDS},
+            "HostName": host,
+            "IP": ip,
+            "proto": e["proto"],
+            "port": e["port"],
+            "in_current_list": (host, ip) in current_keys,
+        })
+    plan.sort(key=lambda p: (not p["in_current_list"], -int(p.get("Score") or 0)))
+    return plan
 
 
 # ------------------------------------------------------------- test infra

@@ -1,6 +1,6 @@
 {
  "schemaVersion": 1,
  "label": "verified alive",
- "message": "pending",
- "color": "lightgrey"
+ "message": "0/95 (0%)",
+ "color": "red"
 }

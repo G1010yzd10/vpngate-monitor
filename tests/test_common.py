@@ -5,6 +5,7 @@ The sample row below is the exact example from the VPN Gate API docs
 """
 import base64
 import os
+import re
 import sys
 from ipaddress import ip_address, ip_network
 
@@ -145,3 +146,87 @@ def test_prune_and_history_roundtrip(tmp_path):
     h = tmp_path / "history.jsonl"
     common.write_history(str(h), [{"a": 1}, {"a": 2}])
     assert common.read_history(str(h), cap=10) == [{"a": 1}, {"a": 2}]
+
+
+def test_extract_proto_port_and_template():
+    cfg = (
+        "client\n\ndev tun\n\nproto tcp\n\nremote 219.100.37.98 443\n\n"
+        "cipher AES-128-CBC\nauth SHA1\n\n<ca>\n-----BEGIN CERTIFICATE-----\n"
+        "AAAA\n-----END CERTIFICATE-----\n</ca>\n"
+    )
+    proto, port = common.extract_proto_port(cfg)
+    assert (proto, port) == ("tcp", 443)
+
+    tpl = common.extract_template(cfg)
+    assert "remote 219.100.37.98" not in tpl
+    assert not re.search(r"(?mi)^\s*proto\s+\S+\s*$", tpl)
+    assert "BEGIN CERTIFICATE" in tpl  # shared certs survive
+
+    rebuilt = common.build_config_from_template(tpl, "udp", "1.2.3.4", 1194)
+    assert "proto udp" in rebuilt
+    assert "remote 1.2.3.4 1194" in rebuilt
+    assert "BEGIN CERTIFICATE" in rebuilt
+    # rebuilding for a different server keeps nothing of the old endpoint
+    assert "219.100.37.98" not in rebuilt
+
+
+def test_registry_update_prune_and_plan():
+    reg = {}
+    s = common.clean_row(sample_row())
+    s["_proto"], s["_port"] = "tcp", 443
+    common.update_registry(reg, [s], "2026-01-01T00:00:00Z")
+    assert len(reg) == 1
+    e = next(iter(reg.values()))
+    assert e["port"] == 443 and e["proto"] == "tcp"
+    assert e["first_seen"] == "2026-01-01T00:00:00Z"
+
+    common.update_registry(reg, [s], "2026-01-02T00:00:00Z")
+    assert next(iter(reg.values()))["occurrences"] == 2
+    assert next(iter(reg.values()))["last_seen"] == "2026-01-02T00:00:00Z"
+
+    plan = common.build_test_plan(reg, [])
+    assert len(plan) == 1
+    assert plan[0]["in_current_list"] is False
+    assert plan[0]["port"] == 443
+
+    plan2 = common.build_test_plan(reg, [{"HostName": s["HostName"],
+                                          "IP": s["IP"]}])
+    assert plan2[0]["in_current_list"] is True
+
+    # entries without endpoints never make it into the plan
+    reg["ghost|5.6.7.8"] = {"HostName": "ghost", "IP": "5.6.7.8"}
+    assert len(common.build_test_plan(reg, [])) == 1
+
+    # prune: recall_days=0 -> cutoff now -> the 2026-01-02 entry is stale
+    dropped = common.prune_registry(reg, recall_days=0, cap=100)
+    assert dropped == 2
+    assert reg == {}
+
+
+def test_build_config_for_worker():
+    import test_vpns
+    cfg_text = (
+        "client\n\ndev tun\n\nproto tcp\n\nremote 9.9.9.9 443\n\n"
+        "<ca>\n-----BEGIN CERTIFICATE-----\nAAAA\n-----END CERTIFICATE-----\n</ca>\n"
+    )
+    tpl = common.extract_template(cfg_text)
+    cfg = test_vpns.build_config(tpl, "tcp", "1.2.3.4", 443, 7, (2, 6))
+    assert "dev tun107" in cfg                      # per-worker tun device
+    assert "remote 1.2.3.4 443" in cfg
+    assert not re.search(r"(?mi)^dev tun$", cfg)     # original dev replaced
+    assert "route-nopull" in cfg                     # runner route protected
+    assert "route 104.16.7.4 255.255.255.255" in cfg  # pinned CF anycast /32
+    assert "route 104.17.7.4 255.255.255.255" in cfg
+    assert "data-ciphers-fallback AES-128-CBC" in cfg
+    assert "tls-cipher DEFAULT:@SECLEVEL=0" in cfg
+    assert "BEGIN CERTIFICATE" in cfg                # shared certs intact
+
+
+def test_public_csv_has_endpoint_columns(tmp_path):
+    s = common.clean_row(sample_row())
+    s["_proto"], s["_port"] = "tcp", 443
+    p = tmp_path / "servers_clean.csv"
+    common.write_public_csv(str(p), [s])
+    text = p.read_text()
+    assert text.splitlines()[0].endswith("Proto,Port")
+    assert text.splitlines()[1].endswith(",tcp,443")

@@ -14,15 +14,17 @@ This does NOT validate the CSV. For every server in the fetched list we:
   6. measure throughput: a 5 MB download through the same pinned route,
   7. hard-kill the tunnel and clean up.
 
-All servers are tested on every run -- dead ones simply cost one connect
-timeout (25 s) inside a parallel worker pool.
+All servers are tested on every run -- not just the current API list, but
+the union of every server that has appeared in the API within the recall
+window (see fetch.py's registry). Configs are rebuilt from the shared VPN
+Gate template (same CA / dummy client cert for all servers) plus each
+server's remembered (proto, port) endpoint.
 
 Standard library only; must run as root (sudo) to create tun devices.
 """
 from __future__ import annotations
 
 import argparse
-import base64
 import json
 import os
 import re
@@ -42,8 +44,6 @@ import common  # noqa: E402
 TMP_ROOT = "/tmp/vpmon"
 
 DEV_RE = re.compile(r"(?mi)^\s*dev\s+\S+\s*$")
-REMOTE_RE = re.compile(r"(?mi)^\s*remote\s+(\S+)\s+(\d+)")
-PROTO_RE = re.compile(r"(?mi)^\s*proto\s+(\S+)")
 
 ERROR_PATTERNS = [
     ("AUTH_FAILED", "auth_failed"),
@@ -89,13 +89,15 @@ def openvpn_version():
     return None
 
 
-def build_config(b64cfg: str, worker: int, ov_ver) -> str:
-    """Decode the VPN Gate config and harden/adapt it for parallel testing."""
-    raw = base64.b64decode(re.sub(r"\s+", "", b64cfg)).decode("utf-8", "replace")
+def build_config(template: str, proto: str, ip: str, port: int,
+                 worker: int, ov_ver) -> str:
+    """Assemble a hardened test config: shared template + endpoint + per-worker
+    tun device + route pinning."""
     tun = common.worker_tun(worker)
-    cfg, n = DEV_RE.subn(f"dev {tun}", raw, count=1)
+    cfg = f"proto {proto}\nremote {ip} {port}\n" + template
+    cfg, n = DEV_RE.subn(f"dev {tun}", cfg, count=1)
     if n == 0:
-        cfg = f"dev {tun}\n{raw}"
+        cfg = f"dev {tun}\n{cfg}"
 
     cf1, cf2 = common.worker_cf_ips(worker)
     extra = [
@@ -234,20 +236,18 @@ def get_runner_ip():
 # ------------------------------------------------------------------- testing
 
 
-def test_server(s, worker, runner_ip, args, ov_ver):
+def test_server(s, worker, runner_ip, args, ov_ver, template):
     seq = s["_seq"]
-    base = {"HostName": s["HostName"], "IP": s["IP"]}
+    base = {"HostName": s["HostName"], "IP": s["IP"],
+            "in_current_list": bool(s.get("in_current_list"))}
     try:
-        b64 = s.get("OpenVPN_ConfigData_Base64") or ""
-        if not s.get("_config_ok") or not b64:
-            return {**base, "alive": False, "error": "bad_or_missing_config"}
+        proto, ip, port = s.get("proto"), s["IP"], s.get("port")
+        if not proto or not port:
+            return {**base, "alive": False, "error": "no_known_endpoint"}
 
-        cfg = build_config(b64, worker, ov_ver)
-        m, p = REMOTE_RE.search(cfg), PROTO_RE.search(cfg)
-        if m:
-            base["via"] = f"{m.group(1)}:{m.group(2)}"
-        if p:
-            base["proto"] = p.group(1)
+        cfg = build_config(template, proto, ip, int(port), worker, ov_ver)
+        base["via"] = f"{ip}:{port}"
+        base["proto"] = proto
 
         cf_ips = common.worker_cf_ips(worker)
         tun = common.worker_tun(worker)
@@ -358,14 +358,15 @@ def main() -> int:
     plog(f"openvpn {ov_ver[0]}.{ov_ver[1]} detected")
 
     raw_path = os.path.join(args.data_dir, "raw", "latest.csv")
-    if not os.path.exists(raw_path):
-        plog(f"FATAL {raw_path} missing -- run scripts/fetch.py first")
+    tpl_path = os.path.join(args.data_dir, "template.ovpn")
+    plan_path = os.path.join(args.data_dir, "test_plan.json")
+    if not os.path.exists(plan_path) or not os.path.exists(tpl_path):
+        plog(f"FATAL {plan_path} or {tpl_path} missing -- run scripts/fetch.py first")
         return 1
-    with open(raw_path, encoding="utf-8-sig", errors="replace") as f:
-        _, rows, _ = common.parse_vpngate_csv(f.read())
-    servers = [c for c in (common.clean_row(r) for r in rows) if c]
-    servers, _, _ = common.dedupe(servers)
-    servers.sort(key=lambda x: -x.get("Score", 0))
+    with open(tpl_path, encoding="utf-8") as f:
+        template = f.read()
+    with open(plan_path, encoding="utf-8") as f:
+        servers = json.load(f)
     for i, s in enumerate(servers):
         s["_seq"] = i
 
@@ -386,7 +387,9 @@ def main() -> int:
     runner_ip = get_runner_ip()
 
     plog(f"runner ip: {runner_ip}")
-    plog(f"testing {len(servers):,} servers with {args.workers} isolated "
+    n_cur = sum(1 for s in servers if s.get("in_current_list"))
+    plog(f"testing {len(servers):,} servers ({n_cur:,} current + "
+         f"{len(servers) - n_cur:,} historical) with {args.workers} isolated "
          f"tunnels (connect timeout {args.connect_timeout}s, "
          f"speed test {args.speed_bytes:,} bytes / {args.speed_timeout}s)")
     plog(f"global budget: {args.max_total_minutes} minutes "
@@ -411,10 +414,11 @@ def main() -> int:
     def wrapped(s):
         if STOP.is_set():
             return {"HostName": s["HostName"], "IP": s["IP"],
+                    "in_current_list": bool(s.get("in_current_list")),
                     "alive": False, "error": "skipped_deadline"}
         w = slots.get()
         try:
-            return test_server(s, w, runner_ip, args, ov_ver)
+            return test_server(s, w, runner_ip, args, ov_ver, template)
         finally:
             slots.put(w)
 
@@ -457,6 +461,8 @@ def main() -> int:
     shutil.rmtree(TMP_ROOT, ignore_errors=True)
 
     alive = [r for r in RESULTS if r.get("alive")]
+    alive_cur = [r for r in alive if r.get("in_current_list")]
+    alive_hist = [r for r in alive if not r.get("in_current_list")]
     speeds = sorted((r.get("download_mbps") or 0) for r in alive)
     err_breakdown = Counter((r.get("error") or "unknown").split(":")[0]
                             for r in RESULTS if not r.get("alive"))
@@ -465,6 +471,8 @@ def main() -> int:
          f"{(time.monotonic() - t_start) / 60:.1f} min")
     plog(f"ALIVE  {totals['alive']:,} ({100 * totals['alive'] / max(1, totals['tested']):.1f}%)"
          f"   DEAD {totals['dead']:,}   GEO-MISMATCH {totals['geo_mismatch']}")
+    plog(f"alive split: {len(alive_cur):,} from the current API list + "
+         f"{len(alive_hist):,} revived historical servers")
     if speeds:
         mid = speeds[len(speeds) // 2]
         plog(f"speed of alive servers: avg {sum(speeds) / len(speeds):.1f} "

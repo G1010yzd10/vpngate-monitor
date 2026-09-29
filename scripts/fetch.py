@@ -17,8 +17,10 @@ Under --archive-dir:
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import os
+import re
 import sys
 import time
 
@@ -76,7 +78,12 @@ def main() -> int:
     ap.add_argument("--archive-dir", default="archive")
     ap.add_argument("--min-rows", type=int, default=common.DEFAULTS["min_rows"])
     ap.add_argument("--keep-archive", type=int, default=common.DEFAULTS["keep_archive"])
+    ap.add_argument("--recall-days", type=int, default=common.DEFAULTS["recall_days"],
+                    help="keep re-testing servers that appeared in the API "
+                         "within the last N days (the union-of-all-servers rule)")
     ap.add_argument("--timeout", type=int, default=60)
+    ap.add_argument("--from-file", default="",
+                    help="debug: use a saved raw API response instead of HTTP")
     args = ap.parse_args()
 
     os.makedirs(os.path.join(args.data_dir, "raw"), exist_ok=True)
@@ -84,10 +91,19 @@ def main() -> int:
     t_start = time.monotonic()
 
     # ---- stage 1: fetch (with endpoint fallback + retries) ----------------
-    url, status, raw, dur = try_fetch(args.timeout)
-    if raw is None:
-        plog(f"FATAL could not fetch a valid CSV from any endpoint: {dur}")
-        return 2
+    if args.from_file:
+        with open(args.from_file, "rb") as f:
+            raw = f.read()
+        url, status, dur = f"file://{args.from_file}", 0, 0.0
+        plog(f"loaded {len(raw):,} bytes from {url} (debug --from-file)")
+        if not looks_like_vpngate_csv(raw):
+            plog("FATAL --from-file payload is not a VPN Gate CSV")
+            return 2
+    else:
+        url, status, raw, dur = try_fetch(args.timeout)
+        if raw is None:
+            plog(f"FATAL could not fetch a valid CSV from any endpoint: {dur}")
+            return 2
     sha = hashlib.sha256(raw).hexdigest()
 
     # ---- stage 2: log / persist raw ---------------------------------------
@@ -117,6 +133,44 @@ def main() -> int:
              f"refusing to overwrite good data with a broken fetch")
         return 2
 
+    # ---- stage 4b: extract dialable endpoints + shared config template ----
+    template = None
+    with_endpoint = 0
+    for s in kept:
+        cfg_text = ""
+        try:
+            cfg_text = base64.b64decode(
+                s["OpenVPN_ConfigData_Base64"]).decode("utf-8", "replace")
+        except Exception:  # noqa: BLE001
+            pass
+        proto, port = common.extract_proto_port(cfg_text)
+        s["_proto"], s["_port"] = proto, port
+        if proto and port:
+            with_endpoint += 1
+            if template is None:
+                template = common.extract_template(cfg_text)
+    plog(f"endpoints extracted for {with_endpoint}/{len(kept)} servers "
+         f"(shared config template {'OK' if template else 'MISSING'})")
+    if template:
+        common.atomic_write(os.path.join(args.data_dir, "template.ovpn"),
+                            template.encode("utf-8"))
+
+    # ---- stage 4c: registry -- the union of every server ever seen ---------
+    reg_path = os.path.join(args.data_dir, "known_servers.json")
+    reg = common.load_registry(reg_path)
+    now = common.now_iso()
+    common.update_registry(reg, kept, now)
+    dropped = common.prune_registry(reg, args.recall_days)
+    common.save_registry(reg_path, reg)
+    plog(f"registry: {len(reg):,} known servers "
+         f"(retention {args.recall_days}d, pruned {dropped} stale)")
+
+    plan = common.build_test_plan(reg, kept)
+    common.write_json(os.path.join(args.data_dir, "test_plan.json"), plan)
+    n_cur = sum(1 for p in plan if p["in_current_list"])
+    plog(f"test plan: {len(plan):,} servers to REAL-test "
+         f"({n_cur:,} current + {len(plan) - n_cur:,} historical)")
+
     # ---- outputs ------------------------------------------------------------
     csv_path = os.path.join(args.data_dir, "servers_clean.csv")
     common.write_public_csv(csv_path, kept)
@@ -136,6 +190,11 @@ def main() -> int:
         "removed_exact_duplicates": exact,
         "removed_same_ip_duplicates": same_ip,
         "unique_servers": len(kept),
+        "with_endpoint": with_endpoint,
+        "registry_size": len(reg),
+        "test_plan_size": len(plan),
+        "test_plan_current": n_cur,
+        "recall_days": args.recall_days,
     }
     common.write_json(os.path.join(args.data_dir, "last_fetch.json"), meta)
 
@@ -146,7 +205,8 @@ def main() -> int:
     plog(f"archived snapshot -> {arch} (pruned {removed} old snapshots, "
          f"keep={args.keep_archive})")
 
-    plog(f"DONE in {time.monotonic() - t_start:.1f}s: {len(kept):,} unique clean servers")
+    plog(f"DONE in {time.monotonic() - t_start:.1f}s: {len(kept):,} unique clean "
+         f"servers, {len(plan):,} total to test (current + historical)")
     return 0
 
 

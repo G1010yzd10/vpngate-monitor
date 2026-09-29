@@ -1,0 +1,20 @@
+{
+ "fetched_at": "2026-09-29T04:45:02Z",
+ "source": "file:///home/z/my-project/.tmp/art1/data/raw/latest.csv",
+ "http_status": 0,
+ "raw_bytes": 1347414,
+ "sha256": "ca840f076e83337942a10e15acbb4b068fd411eea3cefbcc7ed5a48f92a6c95f",
+ "duration_s": 0.0,
+ "rows_parsed": 100,
+ "rows_malformed": 0,
+ "rows_cleaned": 98,
+ "rows_dropped_invalid": 2,
+ "removed_exact_duplicates": 0,
+ "removed_same_ip_duplicates": 3,
+ "unique_servers": 95,
+ "with_endpoint": 95,
+ "registry_size": 95,
+ "test_plan_size": 95,
+ "test_plan_current": 95,
+ "recall_days": 30
+}

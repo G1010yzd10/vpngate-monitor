@@ -1,6 +1,8 @@
 # transient pipeline data (uploaded as Actions artifacts instead of git)
 data/raw/
 data/results.json
+data/test_plan.json
+data/template.ovpn
 logs/
 
 __pycache__/

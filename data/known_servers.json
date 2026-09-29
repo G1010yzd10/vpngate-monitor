@@ -1,5 +1,5 @@
-[
- {
+{
+ "vpn918840683|38.34.239.132": {
   "HostName": "vpn918840683",
   "IP": "38.34.239.132",
   "Score": 3989552,
@@ -14,10 +14,13 @@
   "LogType": "2weeks",
   "Operator": "HP-ENVY360's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1245,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-48|219.100.37.12": {
   "HostName": "public-vpn-48",
   "IP": "219.100.37.12",
   "Score": 3016353,
@@ -32,10 +35,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-72|219.100.37.22": {
   "HostName": "public-vpn-72",
   "IP": "219.100.37.22",
   "Score": 2981318,
@@ -50,10 +56,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-82|219.100.37.54": {
   "HostName": "public-vpn-82",
   "IP": "219.100.37.54",
   "Score": 2962519,
@@ -68,10 +77,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-201|219.100.37.212": {
   "HostName": "public-vpn-201",
   "IP": "219.100.37.212",
   "Score": 2851535,
@@ -86,10 +98,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-137|219.100.37.116": {
   "HostName": "public-vpn-137",
   "IP": "219.100.37.116",
   "Score": 2811720,
@@ -104,10 +119,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-195|219.100.37.195": {
   "HostName": "public-vpn-195",
   "IP": "219.100.37.195",
   "Score": 2726282,
@@ -122,10 +140,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-230|219.100.37.202": {
   "HostName": "public-vpn-230",
   "IP": "219.100.37.202",
   "Score": 2499862,
@@ -140,10 +161,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-214|219.100.37.204": {
   "HostName": "public-vpn-214",
   "IP": "219.100.37.204",
   "Score": 2463405,
@@ -158,10 +182,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-152|219.100.37.96": {
   "HostName": "public-vpn-152",
   "IP": "219.100.37.96",
   "Score": 2193574,
@@ -176,10 +203,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-121|219.100.37.88": {
   "HostName": "public-vpn-121",
   "IP": "219.100.37.88",
   "Score": 1897675,
@@ -194,10 +224,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-135|219.100.37.93": {
   "HostName": "public-vpn-135",
   "IP": "219.100.37.93",
   "Score": 1748403,
@@ -212,10 +245,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-43|219.100.37.7": {
   "HostName": "public-vpn-43",
   "IP": "219.100.37.7",
   "Score": 1733373,
@@ -230,10 +266,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn699751090|118.238.233.8": {
   "HostName": "vpn699751090",
   "IP": "118.238.233.8",
   "Score": 1577642,
@@ -248,10 +287,13 @@
   "LogType": "2weeks",
   "Operator": "Egon-Schiele's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1315,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-239|219.100.37.189": {
   "HostName": "public-vpn-239",
   "IP": "219.100.37.189",
   "Score": 1538319,
@@ -266,10 +308,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-67|219.100.37.84": {
   "HostName": "public-vpn-67",
   "IP": "219.100.37.84",
   "Score": 1470919,
@@ -284,10 +329,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn880633907|60.149.136.130": {
   "HostName": "vpn880633907",
   "IP": "60.149.136.130",
   "Score": 1455375,
@@ -302,10 +350,13 @@
   "LogType": "2weeks",
   "Operator": "Desktop's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1767,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn603234016|220.109.46.143": {
   "HostName": "vpn603234016",
   "IP": "220.109.46.143",
   "Score": 1437297,
@@ -320,10 +371,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-US7KPGH's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1768,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "laud|115.179.206.241": {
   "HostName": "laud",
   "IP": "115.179.206.241",
   "Score": 1435218,
@@ -338,10 +392,13 @@
   "LogType": "2weeks",
   "Operator": "Japan VPN",
   "Message": "こんにちは! Hello! Здравствуйте! 你好! سلام (^_^)/",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn718820171|210.239.247.25": {
   "HostName": "vpn718820171",
   "IP": "210.239.247.25",
   "Score": 1427853,
@@ -356,10 +413,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-JAD388D's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1399,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn214710245|133.175.174.202": {
   "HostName": "vpn214710245",
   "IP": "133.175.174.202",
   "Score": 1418532,
@@ -374,10 +434,13 @@
   "LogType": "2weeks",
   "Operator": "ritsuo-pc's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1614,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-222|219.100.37.183": {
   "HostName": "public-vpn-222",
   "IP": "219.100.37.183",
   "Score": 1402349,
@@ -392,10 +455,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn954065459|175.113.163.59": {
   "HostName": "vpn954065459",
   "IP": "175.113.163.59",
   "Score": 1370783,
@@ -410,10 +476,13 @@
   "LogType": "2weeks",
   "Operator": "Desktop-Apple's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1954,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn767479473|211.226.144.221": {
   "HostName": "vpn767479473",
   "IP": "211.226.144.221",
   "Score": 1355215,
@@ -428,10 +497,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-31RRQB5's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1195,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "shooran|121.136.113.227": {
   "HostName": "shooran",
   "IP": "121.136.113.227",
   "Score": 1336451,
@@ -446,10 +518,13 @@
   "LogType": "2weeks",
   "Operator": "ShooRan",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn254736373|95.154.67.85": {
   "HostName": "vpn254736373",
   "IP": "95.154.67.85",
   "Score": 1335544,
@@ -464,10 +539,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-983S71V's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1721,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn432636439|77.35.137.135": {
   "HostName": "vpn432636439",
   "IP": "77.35.137.135",
   "Score": 1329164,
@@ -482,10 +560,13 @@
   "LogType": "2weeks",
   "Operator": "KICKWORK's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1858,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn478502263|122.213.66.39": {
   "HostName": "vpn478502263",
   "IP": "122.213.66.39",
   "Score": 1328345,
@@ -500,10 +581,13 @@
   "LogType": "2weeks",
   "Operator": "tomo-10's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1756,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn687902218|109.226.246.93": {
   "HostName": "vpn687902218",
   "IP": "109.226.246.93",
   "Score": 1317675,
@@ -518,10 +602,13 @@
   "LogType": "2weeks",
   "Operator": "james-ПК's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "diamondgnd|74.122.88.200": {
   "HostName": "diamondgnd",
   "IP": "74.122.88.200",
   "Score": 1313433,
@@ -536,10 +623,13 @@
   "LogType": "2weeks",
   "Operator": "Diamond.gca.local's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-95|219.100.37.97": {
   "HostName": "public-vpn-95",
   "IP": "219.100.37.97",
   "Score": 1287168,
@@ -554,10 +644,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-240|219.100.37.216": {
   "HostName": "public-vpn-240",
   "IP": "219.100.37.216",
   "Score": 1285992,
@@ -572,10 +665,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn403790020|221.158.213.241": {
   "HostName": "vpn403790020",
   "IP": "221.158.213.241",
   "Score": 1233548,
@@ -590,10 +686,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-0RC7FKS's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1833,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn137812529|218.228.192.151": {
   "HostName": "vpn137812529",
   "IP": "218.228.192.151",
   "Score": 1225298,
@@ -608,10 +707,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-N529KJ2's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1240,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn348020903|211.184.24.38": {
   "HostName": "vpn348020903",
   "IP": "211.184.24.38",
   "Score": 1219926,
@@ -626,10 +728,13 @@
   "LogType": "2weeks",
   "Operator": "원장실n's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1400,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "public-vpn-118|219.100.37.87": {
   "HostName": "public-vpn-118",
   "IP": "219.100.37.87",
   "Score": 1166013,
@@ -644,10 +749,13 @@
   "LogType": "2weeks",
   "Operator": "Daiyuu Nobori_ Japan. Academic Use Only.",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn543986594|60.32.80.192": {
   "HostName": "vpn543986594",
   "IP": "60.32.80.192",
   "Score": 1116540,
@@ -662,10 +770,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-AMRLBIP's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1787,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn397955876|5.143.90.142": {
   "HostName": "vpn397955876",
   "IP": "5.143.90.142",
   "Score": 1089845,
@@ -680,10 +791,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-KDO9FUG's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1938,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn449287030|114.181.166.224": {
   "HostName": "vpn449287030",
   "IP": "114.181.166.224",
   "Score": 1039872,
@@ -698,10 +812,13 @@
   "LogType": "2weeks",
   "Operator": "9f's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn259327943|121.189.247.124": {
   "HostName": "vpn259327943",
   "IP": "121.189.247.124",
   "Score": 978604,
@@ -716,10 +833,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-DQI3H4B's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1782,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn984062575|27.130.189.71": {
   "HostName": "vpn984062575",
   "IP": "27.130.189.71",
   "Score": 972523,
@@ -734,10 +854,13 @@
   "LogType": "2weeks",
   "Operator": "Y3ll0W's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1546,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn176833325|60.107.188.86": {
   "HostName": "vpn176833325",
   "IP": "60.107.188.86",
   "Score": 936586,
@@ -752,10 +875,13 @@
   "LogType": "2weeks",
   "Operator": "FRONTIERPC's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1480,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn433911896|211.227.98.169": {
   "HostName": "vpn433911896",
   "IP": "211.227.98.169",
   "Score": 870622,
@@ -770,10 +896,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-6H1E8U6's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn198522121|27.130.27.216": {
   "HostName": "vpn198522121",
   "IP": "27.130.27.216",
   "Score": 865870,
@@ -788,10 +917,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-UID6QT2's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1472,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn234914413|218.146.155.96": {
   "HostName": "vpn234914413",
   "IP": "218.146.155.96",
   "Score": 836931,
@@ -806,10 +938,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-J100U72's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1963,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn898575276|119.230.138.97": {
   "HostName": "vpn898575276",
   "IP": "119.230.138.97",
   "Score": 832532,
@@ -824,10 +959,13 @@
   "LogType": "2weeks",
   "Operator": "dell_2023's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1488,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn501734765|218.115.106.192": {
   "HostName": "vpn501734765",
   "IP": "218.115.106.192",
   "Score": 815807,
@@ -842,10 +980,13 @@
   "LogType": "2weeks",
   "Operator": "Mortals-mother's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1534,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn364317129|31.135.62.235": {
   "HostName": "vpn364317129",
   "IP": "31.135.62.235",
   "Score": 800320,
@@ -860,10 +1001,13 @@
   "LogType": "2weeks",
   "Operator": "HOME-PC's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1028,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn156466011|211.195.203.232": {
   "HostName": "vpn156466011",
   "IP": "211.195.203.232",
   "Score": 796640,
@@ -878,10 +1022,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-L54NE65's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn353146232|212.164.214.213": {
   "HostName": "vpn353146232",
   "IP": "212.164.214.213",
   "Score": 770834,
@@ -896,10 +1043,13 @@
   "LogType": "2weeks",
   "Operator": "MSI's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn371090610|58.87.159.9": {
   "HostName": "vpn371090610",
   "IP": "58.87.159.9",
   "Score": 769012,
@@ -914,10 +1064,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP_R01's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1605,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn604452196|211.193.55.168": {
   "HostName": "vpn604452196",
   "IP": "211.193.55.168",
   "Score": 755557,
@@ -932,10 +1085,13 @@
   "LogType": "2weeks",
   "Operator": "gwPC's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1506,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn388432584|182.214.53.18": {
   "HostName": "vpn388432584",
   "IP": "182.214.53.18",
   "Score": 749650,
@@ -950,10 +1106,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-QFCCSPN's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1201,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn210064848|61.76.11.83": {
   "HostName": "vpn210064848",
   "IP": "61.76.11.83",
   "Score": 741479,
@@ -968,10 +1127,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-BD52PJQ's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1784,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn744397655|115.1.70.190": {
   "HostName": "vpn744397655",
   "IP": "115.1.70.190",
   "Score": 731808,
@@ -986,10 +1148,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-DTL3BIL's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1870,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn387705421|60.91.157.48": {
   "HostName": "vpn387705421",
   "IP": "60.91.157.48",
   "Score": 712283,
@@ -1004,10 +1169,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-N7PVLD9's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1956,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn161939641|60.91.40.164": {
   "HostName": "vpn161939641",
   "IP": "60.91.40.164",
   "Score": 706337,
@@ -1022,10 +1190,13 @@
   "LogType": "2weeks",
   "Operator": "MSN-02's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1374,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn873220267|126.108.108.183": {
   "HostName": "vpn873220267",
   "IP": "126.108.108.183",
   "Score": 702655,
@@ -1040,10 +1211,13 @@
   "LogType": "2weeks",
   "Operator": "THAVICO-LTEQFDQ's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1890,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn926566638|171.4.248.4": {
   "HostName": "vpn926566638",
   "IP": "171.4.248.4",
   "Score": 701821,
@@ -1058,10 +1232,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-DU2MBJ8's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1980,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn282026883|180.199.85.135": {
   "HostName": "vpn282026883",
   "IP": "180.199.85.135",
   "Score": 696320,
@@ -1076,10 +1253,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-PCRF4QQ's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1341,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn971336380|217.178.195.54": {
   "HostName": "vpn971336380",
   "IP": "217.178.195.54",
   "Score": 695097,
@@ -1094,10 +1274,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-SN5AOPL's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 14985,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn812348403|223.206.239.236": {
   "HostName": "vpn812348403",
   "IP": "223.206.239.236",
   "Score": 692410,
@@ -1112,10 +1295,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-FJLNP0A's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1608,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn290770797|220.212.39.173": {
   "HostName": "vpn290770797",
   "IP": "220.212.39.173",
   "Score": 687212,
@@ -1130,10 +1316,13 @@
   "LogType": "2weeks",
   "Operator": "Delta-1's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1792,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn218350102|110.67.148.200": {
   "HostName": "vpn218350102",
   "IP": "110.67.148.200",
   "Score": 679223,
@@ -1148,10 +1337,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-DJ2RCTR's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1577,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn499425001|60.151.222.133": {
   "HostName": "vpn499425001",
   "IP": "60.151.222.133",
   "Score": 677089,
@@ -1166,10 +1358,13 @@
   "LogType": "2weeks",
   "Operator": "MAI-PERFECT's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1356,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn755967672|203.133.220.104": {
   "HostName": "vpn755967672",
   "IP": "203.133.220.104",
   "Score": 654644,
@@ -1184,10 +1379,13 @@
   "LogType": "2weeks",
   "Operator": "PhongPham's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1731,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn335757937|190.151.143.138": {
   "HostName": "vpn335757937",
   "IP": "190.151.143.138",
   "Score": 622216,
@@ -1202,10 +1400,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-9RVHAQA's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 3222,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn552369767|143.189.248.42": {
   "HostName": "vpn552369767",
   "IP": "143.189.248.42",
   "Score": 620639,
@@ -1220,10 +1421,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-EFJ40U7's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1866,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn540215872|126.34.208.188": {
   "HostName": "vpn540215872",
   "IP": "126.34.208.188",
   "Score": 610132,
@@ -1238,10 +1442,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-07FN8Q5's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1218,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn906143591|94.253.101.177": {
   "HostName": "vpn906143591",
   "IP": "94.253.101.177",
   "Score": 606201,
@@ -1256,10 +1463,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-OMABB4N's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 63786,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn949403162|184.22.168.217": {
   "HostName": "vpn949403162",
   "IP": "184.22.168.217",
   "Score": 604403,
@@ -1274,10 +1484,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-O1TKLLT's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1807,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn194167167|27.130.26.93": {
   "HostName": "vpn194167167",
   "IP": "27.130.26.93",
   "Score": 602148,
@@ -1292,10 +1505,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-DSHV94L's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1614,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn434802815|122.222.94.18": {
   "HostName": "vpn434802815",
   "IP": "122.222.94.18",
   "Score": 593197,
@@ -1310,10 +1526,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-2U1FFR1's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1500,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn458579437|121.149.78.40": {
   "HostName": "vpn458579437",
   "IP": "121.149.78.40",
   "Score": 585618,
@@ -1328,10 +1547,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-IKBCK2C's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn215697364|118.41.251.223": {
   "HostName": "vpn215697364",
   "IP": "118.41.251.223",
   "Score": 580963,
@@ -1346,10 +1568,13 @@
   "LogType": "2weeks",
   "Operator": "IVT-1007's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1663,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn347862715|182.210.237.200": {
   "HostName": "vpn347862715",
   "IP": "182.210.237.200",
   "Score": 580789,
@@ -1364,10 +1589,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-UJA4BBU's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1549,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn571838615|110.54.21.161": {
   "HostName": "vpn571838615",
   "IP": "110.54.21.161",
   "Score": 579122,
@@ -1382,10 +1610,13 @@
   "LogType": "2weeks",
   "Operator": "lemon_t_e_a_'s owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1946,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn227656524|14.138.226.220": {
   "HostName": "vpn227656524",
   "IP": "14.138.226.220",
   "Score": 573386,
@@ -1400,10 +1631,13 @@
   "LogType": "2weeks",
   "Operator": "WIN-U1EC8HMJVGK's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn887520093|211.205.218.20": {
   "HostName": "vpn887520093",
   "IP": "211.205.218.20",
   "Score": 568887,
@@ -1418,10 +1652,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-86PK71U's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1402,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn442508186|118.43.208.143": {
   "HostName": "vpn442508186",
   "IP": "118.43.208.143",
   "Score": 566495,
@@ -1436,10 +1673,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-LMG7461's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1828,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn208466209|27.126.5.202": {
   "HostName": "vpn208466209",
   "IP": "27.126.5.202",
   "Score": 528919,
@@ -1454,10 +1694,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-4IV2FIA's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1712,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn517344067|49.168.147.105": {
   "HostName": "vpn517344067",
   "IP": "49.168.147.105",
   "Score": 523576,
@@ -1472,10 +1715,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-KBJQCI3's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 995,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn593486731|179.6.168.42": {
   "HostName": "vpn593486731",
   "IP": "179.6.168.42",
   "Score": 502071,
@@ -1490,10 +1736,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-GGF1BV3's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 13542,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn704897072|161.97.197.204": {
   "HostName": "vpn704897072",
   "IP": "161.97.197.204",
   "Score": 497706,
@@ -1508,10 +1757,13 @@
   "LogType": "2weeks",
   "Operator": "lguerra-lp.dataprose.com's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1397,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn144846237|46.187.120.205": {
   "HostName": "vpn144846237",
   "IP": "46.187.120.205",
   "Score": 493005,
@@ -1526,10 +1778,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-9TFRNRV's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 1195,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn175155645|60.61.103.122": {
   "HostName": "vpn175155645",
   "IP": "60.61.103.122",
   "Score": 471346,
@@ -1544,10 +1799,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-4LR61C5's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1455,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn246853804|153.187.119.12": {
   "HostName": "vpn246853804",
   "IP": "153.187.119.12",
   "Score": 457345,
@@ -1562,10 +1820,13 @@
   "LogType": "2weeks",
   "Operator": "seisou's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1339,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn368478768|45.146.155.96": {
   "HostName": "vpn368478768",
   "IP": "45.146.155.96",
   "Score": 421612,
@@ -1580,10 +1841,13 @@
   "LogType": "2weeks",
   "Operator": "WIN-IAMJ5F3UK77's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "udp",
+  "port": 3641,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn408435278|183.106.84.223": {
   "HostName": "vpn408435278",
   "IP": "183.106.84.223",
   "Score": 401499,
@@ -1598,10 +1862,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-KNTH8HH's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1418,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn397851595|108.160.87.138": {
   "HostName": "vpn397851595",
   "IP": "108.160.87.138",
   "Score": 381382,
@@ -1616,10 +1883,13 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-45LKAHV's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1330,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn118469396|150.40.105.23": {
   "HostName": "vpn118469396",
   "IP": "150.40.105.23",
   "Score": 379163,
@@ -1634,10 +1904,13 @@
   "LogType": "2weeks",
   "Operator": "BG VPN",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn190171237|219.98.138.123": {
   "HostName": "vpn190171237",
   "IP": "219.98.138.123",
   "Score": 377249,
@@ -1652,10 +1925,13 @@
   "LogType": "2weeks",
   "Operator": "OGAWA's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1320,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn178522347|150.40.105.17": {
   "HostName": "vpn178522347",
   "IP": "150.40.105.17",
   "Score": 373000,
@@ -1670,10 +1946,13 @@
   "LogType": "2weeks",
   "Operator": "BG VPN",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn429922709|150.40.105.7": {
   "HostName": "vpn429922709",
   "IP": "150.40.105.7",
   "Score": 367623,
@@ -1688,10 +1967,13 @@
   "LogType": "2weeks",
   "Operator": "BG VPN",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 443,
+  "last_seen": "2026-09-29T04:45:02Z"
  },
- {
+ "vpn337434621|183.91.108.16": {
   "HostName": "vpn337434621",
   "IP": "183.91.108.16",
   "Score": 367033,
@@ -1706,7 +1988,10 @@
   "LogType": "2weeks",
   "Operator": "DESKTOP-57P28H6's owner",
   "Message": "",
-  "in_current_list": true,
-  "test": null
+  "first_seen": "2026-09-29T04:45:02Z",
+  "occurrences": 1,
+  "proto": "tcp",
+  "port": 1262,
+  "last_seen": "2026-09-29T04:45:02Z"
  }
-]
+}

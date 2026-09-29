@@ -105,7 +105,7 @@ def alive_color(pct):
 # ------------------------------------------------------------------ renderer
 
 
-def render(readme_path, repo, meta, results_doc, servers, history):
+def render(readme_path, repo, meta, results_doc, servers, registry, history):
     env = os.environ
     run_no = env.get("GH_RUN_NUMBER", "—")
     run_url = env.get("GH_RUN_URL", "")
@@ -117,23 +117,38 @@ def render(readme_path, repo, meta, results_doc, servers, history):
     tmeta = results_doc or {}
     by_key = {(t.get("HostName"), t.get("IP")): t for t in tests}
 
+    # current API servers (fresh fields) + historical-only servers (registry)
     merged = []
     for s in servers:
         entry = {f: s.get(f, "") for f in common.PUBLIC_FIELDS}
-        t = by_key.get((s.get("HostName"), s.get("IP")))
+        entry["in_current_list"] = True
+        merged.append(entry)
+    seen = {(e["HostName"], e["IP"]) for e in merged}
+    for key, e in registry.items():
+        host, ip = key.split("|", 1)
+        if (host, ip) in seen or not e.get("proto") or not e.get("port"):
+            continue
+        entry = {f: e.get(f, "") for f in common.PUBLIC_FIELDS}
+        entry["in_current_list"] = False
+        merged.append(entry)
+    for entry in merged:
+        t = by_key.get((entry["HostName"], entry["IP"]))
         entry["test"] = ({k: t.get(k) for k in (
             "alive", "connect_ms", "via", "proto", "exit_ip", "exit_country",
             "geo_match", "http_s", "download_mbps", "downloaded_bytes",
             "speed_capped", "error")} if t else None)
-        merged.append(entry)
 
+    current = [e for e in merged if e["in_current_list"]]
     tested = [e for e in merged if e["test"]]
     alive = [e for e in tested if e["test"].get("alive")]
+    alive_cur = [e for e in alive if e["in_current_list"]]
+    revived = [e for e in alive if not e["in_current_list"]]
     dead = [e for e in tested if not e["test"].get("alive")]
     untested = len(merged) - len(tested)
-    fetched = meta.get("unique_servers", len(merged)) if meta else len(merged)
+    fetched = meta.get("unique_servers", len(current)) if meta else len(current)
+    hist_known = len(merged) - len(current)
     alive_pct = (100.0 * len(alive) / len(tested)) if tested else None
-    usability = (100.0 * len(alive) / fetched) if fetched else None
+    usability = (100.0 * len(alive_cur) / fetched) if fetched else None
     speeds = [e["test"]["download_mbps"] for e in alive
               if e["test"].get("download_mbps")]
     avg_sp = sum(speeds) / len(speeds) if speeds else None
@@ -240,12 +255,15 @@ def render(readme_path, repo, meta, results_doc, servers, history):
             ap(f"| **Duplicates removed** | "
                f"{meta.get('removed_exact_duplicates', 0):,} exact + "
                f"{meta.get('removed_same_ip_duplicates', 0):,} same-IP |")
-        ap(f"| **Servers tested** | **{len(tested):,} of {fetched:,}** — "
-           f"every single one, every run |" if tested else
+        ap(f"| **Servers tested** | **{len(tested):,} of {len(merged):,}** — "
+           f"all {fetched:,} current + {hist_known:,} historical "
+           f"(every server seen in the API within "
+           f"{(meta or {}).get('recall_days', 30)} days) |" if tested else
            f"| **Servers tested** | ⏳ pending first test run |")
         if tested:
             ap(f"| **✅ Verified alive** (tunnel up + egress proven) | "
-               f"**{len(alive):,}** |")
+               f"**{len(alive):,}** — {len(alive_cur):,} from the current "
+               f"list + {len(revived):,} historical ♻️ |")
             ap(f"| **❌ Dead / unusable** | {len(dead):,} |")
             if usability is not None:
                 ap(f"| **Usability** | **{usability:.1f}%** of everything "
@@ -272,14 +290,16 @@ def render(readme_path, repo, meta, results_doc, servers, history):
     ap("## 🚀 Fastest verified servers")
     ap("")
     if fastest:
-        ap("| # | Server | Country | Endpoint | Handshake | Measured ↓ | "
+        ap("| # | Server | Country | List | Endpoint | Handshake | Measured ↓ | "
            "Claimed ↓ | Score |")
-        ap("|---:|---|---|---|---:|---:|---:|---:|")
+        ap("|---:|---|---|---|---|---:|---:|---:|---:|")
         for i, e in enumerate(fastest, 1):
             t = e["test"]
             ap(f"| {i} | `{esc(e.get('HostName'))}` | "
                f"{common.country_flag(e.get('CountryShort'))} "
-               f"{esc(e.get('CountryLong'))} | `{esc(t.get('via') or e.get('IP'))}`"
+               f"{esc(e.get('CountryLong'))} | "
+               f"{'📋 current' if e.get('in_current_list') else '♻️ historical'} | "
+               f"`{esc(t.get('via') or e.get('IP'))}`"
                f"{'/' + esc(t.get('proto')) if t.get('proto') else ''} | "
                f"{(t.get('connect_ms') or 0) / 1000:.1f}s | "
                f"**{t.get('download_mbps') or 0:.1f} Mbps** | "
@@ -287,7 +307,9 @@ def render(readme_path, repo, meta, results_doc, servers, history):
         ap("")
         ap("*Measured = 5 MB download through the live tunnel to "
            "speed.cloudflare.com. Claimed = the server's self-reported line "
-           "speed in the VPN Gate API.*")
+           "speed in the VPN Gate API. 'Historical' servers are no longer in "
+           "the API's current top list but still answered our tunnel — we "
+           "keep re-testing everything we have ever seen.*")
     else:
         ap("⏳ No verified-alive servers yet — waiting for the first "
            "completed test run.")
@@ -434,15 +456,19 @@ def render(readme_path, repo, meta, results_doc, servers, history):
        "same-IP entries keeping the highest-scoring one.")
     ap("4. **Archive** — every run writes an immutable gzipped snapshot to "
        "`archive/` (auto-pruned to the newest 360 ≈ 90 days).")
-    ap("5. **Test — the real deal.** For **every** server, every run: decode "
-       "its embedded OpenVPN config, force it onto a per-worker `tun` device, "
-       "disable pushed routes, pin two /32 routes through the tunnel to "
-       "per-worker Cloudflare anycast IPs, wait for *Initialization Sequence "
-       "Completed*, then verify egress (`cdn-cgi/trace` through the tunnel "
-       "must return a foreign exit IP + real exit country) and measure a 5 MB "
-       "download through the same tunnel. Up to 48 isolated tunnels run in "
-       "parallel; a server that never completes the handshake is hard-killed "
-       "after 25 s.")
+    ap("5. **Test — the real deal.** For **every** server, every run — not "
+       "just the API's current list, but **the union of every server that has "
+       "ever appeared** within the 30-day recall window (kept in "
+       "`data/known_servers.json`): decode the shared VPN Gate OpenVPN "
+       "template (all servers ship the same CA + dummy client cert — verified), "
+       "rebuild each server's config with its remembered `(proto, port)`, "
+       "force it onto a per-worker `tun` device, disable pushed routes, pin "
+       "two /32 routes through the tunnel to per-worker Cloudflare anycast "
+       "IPs, wait for *Initialization Sequence Completed*, then verify egress "
+       "(`cdn-cgi/trace` through the tunnel must return a foreign exit IP + "
+       "real exit country) and measure a 5 MB download through the same "
+       "tunnel. Up to 48 isolated tunnels run in parallel; a server that "
+       "never completes the handshake is hard-killed after 25 s.")
     ap("6. **Report** — this README, four live badges, `latest.json`, "
        "`summary.json` and the `history.jsonl` log are regenerated and "
        "committed by `github-actions[bot]`.")
@@ -535,9 +561,12 @@ def render(readme_path, repo, meta, results_doc, servers, history):
         "alive_pct": alive_pct, "usability": usability,
         "avg_mbps": avg_sp, "median_mbps": med_sp, "max_mbps": max_sp,
         "mismatches": len(mismatches),
+        "historical_known": hist_known,
+        "revived": len(revived),
         "avg_connect_ms": (sum(conns) / len(conns)) if conns else None,
         "fastest": [{"HostName": e.get("HostName"), "IP": e.get("IP"),
                      "CountryShort": e.get("CountryShort"),
+                     "in_current_list": e.get("in_current_list"),
                      "download_mbps": e["test"].get("download_mbps")}
                     for e in fastest],
         "failure_breakdown": dict(fails.most_common(12)),
@@ -561,11 +590,12 @@ def main() -> int:
     meta = read_json(os.path.join(args.data_dir, "last_fetch.json"))
     results_doc = read_json(os.path.join(args.data_dir, "results.json"))
     servers = read_servers_csv(os.path.join(args.data_dir, "servers_clean.csv"))
+    registry = common.load_registry(os.path.join(args.data_dir, "known_servers.json"))
     hist_path = os.path.join(args.data_dir, "history.jsonl")
     history = common.read_history(hist_path, common.DEFAULTS["history_cap"])
 
     readme, badges, merged, s = render(args.readme, repo, meta, results_doc,
-                                       servers, history)
+                                       servers, registry, history)
 
     common.atomic_write(args.readme, readme.encode("utf-8"))
     plog(f"wrote {args.readme} ({len(readme):,} bytes)")
@@ -592,6 +622,7 @@ def main() -> int:
             "avg_mbps": round(s["avg_mbps"], 2) if s["avg_mbps"] is not None else None,
             "max_mbps": s["max_mbps"],
             "mismatches": s["mismatches"],
+            "revived": s.get("revived", 0),
             "run": s["run"],
         }
         if history and history[-1].get("run_key") == run_key:

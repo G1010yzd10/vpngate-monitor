@@ -12,7 +12,13 @@
 
 ## 📊 Latest results
 
-⏳ **No run has completed yet.** The first automated run is scheduled right after this repo was pushed — this report will fill itself in automatically.
+| | |
+|---|---|
+| **Run** | #— · 2026-09-29 04:45:02 UTC · trigger: `local` |
+| **Servers fetched (unique)** | **95** |
+| **Duplicates removed** | 0 exact + 3 same-IP |
+| **Servers tested** | ⏳ pending first test run |
+| **Untested** | 95 |
 
 ## 🚀 Fastest verified servers
 
@@ -24,7 +30,18 @@
 
 ## 🌍 Countries
 
-⏳ Pending data.
+| Country | Servers | Verified alive | Best measured ↓ | Fastest server |
+|---|---:|---:|---:|---|
+| 🇯🇵 Japan (JP) | 49 | 0 | 0.0 Mbps | `` |
+| 🇰🇷 Korea Republic of (KR) | 22 | 0 | 0.0 Mbps | `` |
+| 🇷🇺 Russian Federation (RU) | 9 | 0 | 0.0 Mbps | `` |
+| 🇹🇭 Thailand (TH) | 6 | 0 | 0.0 Mbps | `` |
+| 🇭🇷 Croatia (LOCAL Name: Hrvatska) (HR) | 3 | 0 | 0.0 Mbps | `` |
+| 🇺🇸 United States (US) | 2 | 0 | 0.0 Mbps | `` |
+| 🇨🇦 Canada (CA) | 1 | 0 | 0.0 Mbps | `` |
+| 🇨🇴 Colombia (CO) | 1 | 0 | 0.0 Mbps | `` |
+| 🇬🇩 Grenada (GD) | 1 | 0 | 0.0 Mbps | `` |
+| 🇵🇪 Peru (PE) | 1 | 0 | 0.0 Mbps | `` |
 
 ## 🕵️ Claim vs. reality
 
@@ -56,7 +73,7 @@ flowchart LR
 2. **Clean** — parse the special CSV (`*vpn_servers` marker, `#`-prefixed header), type-check every numeric field, validate IPs, drop broken rows, strip noise.
 3. **Dedupe** — remove exact `(HostName, IP)` duplicates, then same-IP entries keeping the highest-scoring one.
 4. **Archive** — every run writes an immutable gzipped snapshot to `archive/` (auto-pruned to the newest 360 ≈ 90 days).
-5. **Test — the real deal.** For **every** server, every run: decode its embedded OpenVPN config, force it onto a per-worker `tun` device, disable pushed routes, pin two /32 routes through the tunnel to per-worker Cloudflare anycast IPs, wait for *Initialization Sequence Completed*, then verify egress (`cdn-cgi/trace` through the tunnel must return a foreign exit IP + real exit country) and measure a 5 MB download through the same tunnel. Up to 48 isolated tunnels run in parallel; a server that never completes the handshake is hard-killed after 25 s.
+5. **Test — the real deal.** For **every** server, every run — not just the API's current list, but **the union of every server that has ever appeared** within the 30-day recall window (kept in `data/known_servers.json`): decode the shared VPN Gate OpenVPN template (all servers ship the same CA + dummy client cert — verified), rebuild each server's config with its remembered `(proto, port)`, force it onto a per-worker `tun` device, disable pushed routes, pin two /32 routes through the tunnel to per-worker Cloudflare anycast IPs, wait for *Initialization Sequence Completed*, then verify egress (`cdn-cgi/trace` through the tunnel must return a foreign exit IP + real exit country) and measure a 5 MB download through the same tunnel. Up to 48 isolated tunnels run in parallel; a server that never completes the handshake is hard-killed after 25 s.
 6. **Report** — this README, four live badges, `latest.json`, `summary.json` and the `history.jsonl` log are regenerated and committed by `github-actions[bot]`.
 
 ## 📁 Data files & programmatic use
