@@ -28,7 +28,7 @@ from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common  # noqa: E402
 
-REPO_DEFAULT = "g1010yzd10/vpngate-monitor"
+REPO_DEFAULT = "G1010yzd10/vpngate-monitor"
 
 
 def plog(msg):
