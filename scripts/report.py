@@ -195,9 +195,9 @@ def render(readme_path, repo, meta, results_doc, servers, registry, history):
     badges = {
         "servers": badge("servers tracked", f"{fetched:,}", "blue"),
         "alive": badge("verified alive",
-                       (f"{len(alive):,}/{fetched:,} ({usability:.0f}%)"
-                        if usability is not None else "pending"),
-                       alive_color(usability)),
+                       (f"{len(alive):,}/{len(tested):,} tested ({alive_pct:.0f}%)"
+                        if tested else "pending"),
+                       alive_color(alive_pct if tested else None)),
         "speed": badge("avg measured speed",
                        (f"{avg_sp:.1f} Mbps" if avg_sp is not None else "pending"),
                        speed_color(avg_sp)),
