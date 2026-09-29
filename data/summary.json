@@ -1,0 +1,24 @@
+{
+ "meta": null,
+ "fetched": 0,
+ "tested": 0,
+ "alive": 0,
+ "dead": 0,
+ "untested": 0,
+ "alive_pct": null,
+ "usability": null,
+ "avg_mbps": null,
+ "median_mbps": null,
+ "max_mbps": null,
+ "mismatches": 0,
+ "avg_connect_ms": null,
+ "fastest": [],
+ "failure_breakdown": {},
+ "runner_ip": null,
+ "run": {
+  "number": "—",
+  "url": "",
+  "event": "local",
+  "generated_at": "2026-09-29T04:29:34Z"
+ }
+}

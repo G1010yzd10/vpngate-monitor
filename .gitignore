@@ -1,0 +1,10 @@
+# transient pipeline data (uploaded as Actions artifacts instead of git)
+data/raw/
+data/results.json
+logs/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.tmp
