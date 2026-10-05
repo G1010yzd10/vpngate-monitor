@@ -157,7 +157,7 @@ def render(readme_path, repo, meta, results_doc, servers, registry, history):
     mismatches = [e for e in alive if e["test"].get("geo_match") is False]
     conns = [e["test"]["connect_ms"] for e in alive if e["test"].get("connect_ms")]
 
-    fastest = sorted(alive, key=lambda e: (-e["test"].get("download_mbps") or 0,
+    fastest = sorted(alive, key=lambda e: (-(e["test"].get("download_mbps") or 0),
                                            -e.get("Score", 0)))[:10]
     topscore = sorted(alive, key=lambda e: (-e.get("Score", 0),
                                             -(e["test"].get("download_mbps") or 0)))[:10]
