@@ -14,32 +14,32 @@
 
 | | |
 |---|---|
-| **Run** | [#38 · view run](https://github.com/G1010yzd10/vpngate-monitor/actions/runs/37933240784) · 2026-10-09 12:55:41 UTC · trigger: `schedule` |
-| **Servers fetched (unique)** | **94** |
-| **Duplicates removed** | 0 exact + 3 same-IP |
-| **Servers tested** | **1,727 of 1,727** — all 94 current + 1,633 historical (every server seen in the API within 30 days) |
-| **✅ Verified alive** (tunnel up + egress proven) | **772** — 65 from the current list + 707 historical ♻️ |
-| **❌ Dead / unusable** | 955 |
-| **Usability** | **69.1%** of everything VPN Gate lists right now actually works |
-| **⚡ Measured speed (avg / median / max)** | **11.3 / 13.0 / 94.1 Mbps** |
-| **🚀 Fastest verified** | **vpn132949429** · 🇺🇸 United States · **94.1 Mbps** |
-| **🧭 Exit-country mismatches** | 9 (server exits somewhere else than it claims) |
+| **Run** | [#39 · view run](https://github.com/G1010yzd10/vpngate-monitor/actions/runs/37999406988) · 2026-10-09 22:28:53 UTC · trigger: `schedule` |
+| **Servers fetched (unique)** | **96** |
+| **Duplicates removed** | 0 exact + 0 same-IP |
+| **Servers tested** | **1,785 of 1,785** — all 96 current + 1,689 historical (every server seen in the API within 30 days) |
+| **✅ Verified alive** (tunnel up + egress proven) | **481** — 40 from the current list + 441 historical ♻️ |
+| **❌ Dead / unusable** | 1,304 |
+| **Usability** | **41.7%** of everything VPN Gate lists right now actually works |
+| **⚡ Measured speed (avg / median / max)** | **11.5 / 13.8 / 28.6 Mbps** |
+| **🚀 Fastest verified** | **vpn729038920** · 🇺🇸 United States · **28.6 Mbps** |
+| **🧭 Exit-country mismatches** | 11 (server exits somewhere else than it claims) |
 | **🤝 Handshake time (alive, avg)** | 2.9 s |
 
 ## 🚀 Fastest verified servers
 
 | # | Server | Country | List | Endpoint | Handshake | Measured ↓ | Claimed ↓ | Score |
 |---:|---|---|---|---|---:|---:|---:|---:|
-| 1 | `vpn132949429` | 🇺🇸 United States | ♻️ historical | `47.155.228.164:1392`/udp | 2.0s | **94.1 Mbps** | 150.2 Mbps | 1,848,446 |
-| 2 | `vpn908512202` | 🇺🇸 United States | ♻️ historical | `162.224.160.11:1423`/tcp | 2.0s | **48.0 Mbps** | 0.0 Mbps | 730,079 |
-| 3 | `vpn372889393` | 🇯🇵 Japan | ♻️ historical | `131.147.172.243:1195`/udp | 2.5s | **25.4 Mbps** | 904.6 Mbps | 603,530 |
-| 4 | `vpn325696545` | 🇯🇵 Japan | ♻️ historical | `39.111.138.50:1195`/udp | 2.3s | **24.9 Mbps** | 728.3 Mbps | 362,807 |
-| 5 | `vpn980413265` | 🇯🇵 Japan | ♻️ historical | `138.64.86.7:51245`/udp | 2.5s | **24.4 Mbps** | 558.8 Mbps | 616,029 |
-| 6 | `vpn169318955` | 🇯🇵 Japan | ♻️ historical | `138.64.86.41:52295`/udp | 2.3s | **24.4 Mbps** | 644.4 Mbps | 717,595 |
-| 7 | `vpn821116418` | 🇯🇵 Japan | ♻️ historical | `138.64.97.146:21635`/udp | 2.3s | **24.1 Mbps** | 830.0 Mbps | 579,283 |
-| 8 | `vpn736046374` | 🇯🇵 Japan | ♻️ historical | `92.202.136.79:1497`/udp | 2.5s | **23.6 Mbps** | 501.0 Mbps | 1,394,745 |
-| 9 | `vpn751506395` | 🇯🇵 Japan | ♻️ historical | `219.104.167.40:14992`/udp | 2.5s | **23.5 Mbps** | 961.6 Mbps | 620,637 |
-| 10 | `vpn165481165` | 🇯🇵 Japan | ♻️ historical | `133.149.94.50:1877`/udp | 2.3s | **23.2 Mbps** | 462.8 Mbps | 990,993 |
+| 1 | `vpn729038920` | 🇺🇸 United States | ♻️ historical | `38.49.242.56:1538`/tcp | 2.3s | **28.6 Mbps** | 96.5 Mbps | 1,872,287 |
+| 2 | `vpn705687526` | 🇯🇵 Japan | 📋 current | `147.192.42.21:1195`/udp | 2.3s | **26.4 Mbps** | 68.6 Mbps | 1,446,061 |
+| 3 | `vpn821116418` | 🇯🇵 Japan | ♻️ historical | `138.64.97.146:21635`/udp | 2.5s | **25.4 Mbps** | 830.0 Mbps | 579,283 |
+| 4 | `vpn679218486` | 🇯🇵 Japan | ♻️ historical | `124.209.226.195:1752`/udp | 2.3s | **24.8 Mbps** | 686.9 Mbps | 597,704 |
+| 5 | `vpn165481165` | 🇯🇵 Japan | ♻️ historical | `133.149.94.50:1877`/udp | 2.3s | **23.8 Mbps** | 462.8 Mbps | 990,993 |
+| 6 | `vpn693017146` | 🇯🇵 Japan | ♻️ historical | `218.131.41.95:1975`/udp | 2.5s | **23.3 Mbps** | 2,558.8 Mbps | 599,858 |
+| 7 | `vpn801078316` | 🇯🇵 Japan | ♻️ historical | `138.64.96.119:27783`/udp | 2.5s | **23.3 Mbps** | 288.3 Mbps | 594,948 |
+| 8 | `vpn178005109` | 🇯🇵 Japan | ♻️ historical | `114.184.115.158:1848`/udp | 2.5s | **23.3 Mbps** | 640.5 Mbps | 585,823 |
+| 9 | `vpn537261568` | 🇯🇵 Japan | ♻️ historical | `220.147.116.46:1508`/udp | 2.5s | **23.1 Mbps** | 39.0 Mbps | 518,084 |
+| 10 | `vpn701289290` | 🇯🇵 Japan | ♻️ historical | `115.163.40.198:1195`/udp | 2.3s | **23.0 Mbps** | 844.7 Mbps | 1,005,299 |
 
 *Measured = 5 MB download through the live tunnel to speed.cloudflare.com. Claimed = the server's self-reported line speed in the VPN Gate API. 'Historical' servers are no longer in the API's current top list but still answered our tunnel — we keep re-testing everything we have ever seen.*
 
@@ -47,61 +47,61 @@
 
 | # | Server | Country | Score | Claimed ↓ | Measured ↓ | Sessions | Uptime | Log policy |
 |---:|---|---|---:|---:|---:|---:|---:|---|
-| 1 | `public-vpn-48` | 🇯🇵 JP | 3,016,353 | 949.2 Mbps | 11.5 Mbps | 107 | 126.5 d | 2weeks |
-| 2 | `public-vpn-182` | 🇯🇵 JP | 2,781,744 | 1,013.3 Mbps | 8.1 Mbps | 119 | 129.6 d | 2weeks |
-| 3 | `public-vpn-145` | 🇯🇵 JP | 2,779,767 | 396.3 Mbps | 8.7 Mbps | 42 | 128.6 d | 2weeks |
-| 4 | `public-vpn-66` | 🇯🇵 JP | 2,758,587 | 393.6 Mbps | 7.5 Mbps | 109 | 126.6 d | 2weeks |
-| 5 | `public-vpn-228` | 🇯🇵 JP | 2,701,698 | 102.5 Mbps | 10.9 Mbps | 58 | 6.0 d | 2weeks |
-| 6 | `public-vpn-135` | 🇯🇵 JP | 2,601,645 | 333.1 Mbps | 12.5 Mbps | 89 | 128.6 d | 2weeks |
-| 7 | `public-vpn-197` | 🇯🇵 JP | 2,563,317 | 148.7 Mbps | 3.0 Mbps | 88 | 5.6 d | 2weeks |
-| 8 | `public-vpn-82` | 🇯🇵 JP | 2,529,472 | 136.8 Mbps | 9.5 Mbps | 72 | 5.6 d | 2weeks |
-| 9 | `public-vpn-258` | 🇯🇵 JP | 2,453,904 | 163.1 Mbps | 8.8 Mbps | 77 | 6.0 d | 2weeks |
-| 10 | `public-vpn-261` | 🇯🇵 JP | 2,431,377 | 194.5 Mbps | 4.3 Mbps | 92 | 5.0 d | 2weeks |
+| 1 | `public-vpn-48` | 🇯🇵 JP | 3,016,353 | 949.2 Mbps | 14.7 Mbps | 107 | 126.5 d | 2weeks |
+| 2 | `public-vpn-64` | 🇯🇵 JP | 2,982,423 | 82.6 Mbps | 15.2 Mbps | 74 | 7.0 d | 2weeks |
+| 3 | `public-vpn-145` | 🇯🇵 JP | 2,779,767 | 396.3 Mbps | 16.4 Mbps | 42 | 128.6 d | 2weeks |
+| 4 | `public-vpn-259` | 🇯🇵 JP | 2,777,762 | 138.1 Mbps | 5.3 Mbps | 130 | 6.6 d | 2weeks |
+| 5 | `public-vpn-100` | 🇯🇵 JP | 2,728,268 | 62.8 Mbps | 15.2 Mbps | 186 | 7.0 d | 2weeks |
+| 6 | `public-vpn-134` | 🇯🇵 JP | 2,711,895 | 135.1 Mbps | 15.5 Mbps | 57 | 6.0 d | 2weeks |
+| 7 | `public-vpn-196` | 🇯🇵 JP | 2,679,699 | 701.4 Mbps | 6.0 Mbps | 77 | 126.6 d | 2weeks |
+| 8 | `public-vpn-197` | 🇯🇵 JP | 2,563,317 | 148.7 Mbps | 11.2 Mbps | 88 | 5.6 d | 2weeks |
+| 9 | `public-vpn-187` | 🇯🇵 JP | 2,555,811 | 163.7 Mbps | 0.7 Mbps | 85 | 7.0 d | 2weeks |
+| 10 | `public-vpn-51` | 🇯🇵 JP | 2,542,469 | 64.5 Mbps | 15.3 Mbps | 55 | 7.0 d | 2weeks |
 
 ## 🌍 Countries
 
 | Country | Servers | Verified alive | Best measured ↓ | Fastest server |
 |---|---:|---:|---:|---|
-| 🇯🇵 Japan (JP) | 753 | 391 | 25.4 Mbps | `vpn372889393` |
-| 🇰🇷 Korea Republic of (KR) | 566 | 308 | 20.6 Mbps | `vpn676301515` |
-| 🇷🇺 Russian Federation (RU) | 128 | 2 | 10.2 Mbps | `vpn856084155` |
-| 🇹🇭 Thailand (TH) | 125 | 28 | 14.5 Mbps | `vpn464019589` |
-| 🇺🇸 United States (US) | 49 | 8 | 94.1 Mbps | `vpn132949429` |
-| 🇻🇳 Viet Nam (VN) | 31 | 9 | 12.4 Mbps | `vpn268153810` |
-| 🇭🇷 Croatia (LOCAL Name: Hrvatska) (HR) | 7 | 4 | 0.9 Mbps | `vpn801372263` |
+| 🇯🇵 Japan (JP) | 777 | 264 | 26.4 Mbps | `vpn705687526` |
+| 🇰🇷 Korea Republic of (KR) | 583 | 162 | 19.9 Mbps | `vpn767479473` |
+| 🇷🇺 Russian Federation (RU) | 134 | 5 | 11.5 Mbps | `vpn664659019` |
+| 🇹🇭 Thailand (TH) | 127 | 10 | 15.1 Mbps | `vpn740415697` |
+| 🇺🇸 United States (US) | 49 | 10 | 28.6 Mbps | `vpn729038920` |
+| 🇻🇳 Viet Nam (VN) | 32 | 3 | 11.1 Mbps | `vpn764427404` |
+| 🇭🇷 Croatia (LOCAL Name: Hrvatska) (HR) | 13 | 9 | 0.8 Mbps | `vpn801372263` |
 | 🇲🇽 Mexico (MX) | 6 | 0 | 0.0 Mbps | `` |
-| 🇦🇷 Argentina (AR) | 5 | 1 | 17.2 Mbps | `vpn510681258` |
-| 🇮🇳 India (IN) | 5 | 1 | 7.1 Mbps | `vpn359610091` |
-| 🇦🇺 Australia (AU) | 4 | 2 | 13.5 Mbps | `vpn727329064` |
-| 🇨🇱 Chile (CL) | 4 | 0 | 0.0 Mbps | `` |
-| 🇨🇦 Canada (CA) | 3 | 1 | 1.1 Mbps | `vpn491348575` |
+| 🇦🇷 Argentina (AR) | 5 | 1 | 16.4 Mbps | `vpn510681258` |
+| 🇮🇳 India (IN) | 5 | 1 | 7.6 Mbps | `vpn359610091` |
+| 🇦🇺 Australia (AU) | 4 | 1 | 11.6 Mbps | `vpn759761201` |
+| 🇨🇱 Chile (CL) | 4 | 1 | 11.4 Mbps | `vpn548414740` |
+| 🇨🇦 Canada (CA) | 3 | 1 | 5.7 Mbps | `vpn779606145` |
 | 🇨🇴 Colombia (CO) | 3 | 0 | 0.0 Mbps | `` |
 | 🇵🇪 Peru (PE) | 3 | 0 | 0.0 Mbps | `` |
-| 🇧🇷 Brazil (BR) | 2 | 0 | 0.0 Mbps | `` |
-| 🇨🇳 China (CN) | 2 | 1 | 0.4 Mbps | `_unregistered_vpn952021746` |
-| 🇩🇪 Germany (DE) | 2 | 1 | 0.9 Mbps | `vpn695737487` |
-| 🇫🇷 France (FR) | 2 | 1 | 2.8 Mbps | `vpn206344472` |
-| 🇬🇧 United Kingdom (GB) | 2 | 1 | 0.8 Mbps | `neko69` |
-| 🇭🇰 Hong Kong (HK) | 2 | 2 | 10.7 Mbps | `vpn986755484` |
-| 🇲🇲 Myanmar (MM) | 2 | 1 | 0.1 Mbps | `vpn192397778` |
-| 🇺🇦 Ukraine (UA) | 2 | 2 | 16.4 Mbps | `vpn268164757` |
-| 🇦🇪 United Arab Emirates (AE) | 1 | 0 | 0.0 Mbps | `` |
+| 🇺🇦 Ukraine (UA) | 3 | 0 | 0.0 Mbps | `` |
+| 🇦🇪 United Arab Emirates (AE) | 2 | 1 | 8.5 Mbps | `vpn490466648` |
+| 🇧🇷 Brazil (BR) | 2 | 1 | 10.2 Mbps | `vpn564048942` |
+| 🇨🇳 China (CN) | 2 | 1 | 6.8 Mbps | `_unregistered_vpn952021746` |
+| 🇩🇪 Germany (DE) | 2 | 1 | 0.8 Mbps | `vpn695737487` |
+| 🇫🇷 France (FR) | 2 | 1 | 3.8 Mbps | `vpn206344472` |
+| 🇬🇧 United Kingdom (GB) | 2 | 0 | 0.0 Mbps | `` |
+| 🇭🇰 Hong Kong (HK) | 2 | 2 | 11.0 Mbps | `vpn986755484` |
+| 🇲🇲 Myanmar (MM) | 2 | 0 | 0.0 Mbps | `` |
 | 🇧🇪 Belgium (BE) | 1 | 0 | 0.0 Mbps | `` |
-| 🇧🇾 Belarus (BY) | 1 | 0 | 0.0 Mbps | `` |
+| 🇧🇾 Belarus (BY) | 1 | 1 | 11.6 Mbps | `vpn339361450` |
 | 🇨🇭 Switzerland (CH) | 1 | 0 | 0.0 Mbps | `` |
-| 🇨🇿 Czech Republic (CZ) | 1 | 1 | 10.2 Mbps | `vpn809432043` |
-| 🇪🇨 Ecuador (EC) | 1 | 1 | 15.9 Mbps | `vpn714667264` |
+| 🇨🇿 Czech Republic (CZ) | 1 | 1 | 9.7 Mbps | `vpn809432043` |
+| 🇪🇨 Ecuador (EC) | 1 | 0 | 0.0 Mbps | `` |
 | 🇫🇮 Finland (FI) | 1 | 0 | 0.0 Mbps | `` |
-| 🇬🇩 Grenada (GD) | 1 | 1 | 11.9 Mbps | `diamondgnd` |
-| 🇭🇺 Hungary (HU) | 1 | 1 | 3.9 Mbps | `vpn273160004` |
+| 🇬🇩 Grenada (GD) | 1 | 1 | 4.7 Mbps | `diamondgnd` |
+| 🇭🇺 Hungary (HU) | 1 | 1 | 10.5 Mbps | `vpn273160004` |
 | 🇮🇷 Iran (ISLAMIC Republic Of) (IR) | 1 | 0 | 0.0 Mbps | `` |
 | 🇱🇨 Saint Lucia (LC) | 1 | 0 | 0.0 Mbps | `` |
-| 🇱🇹 Lithuania (LT) | 1 | 1 | 11.0 Mbps | `vpn539804093` |
+| 🇱🇹 Lithuania (LT) | 1 | 1 | 11.4 Mbps | `vpn539804093` |
 | 🇱🇺 Luxembourg (LU) | 1 | 0 | 0.0 Mbps | `` |
 | 🇲🇾 Malaysia (MY) | 1 | 0 | 0.0 Mbps | `` |
 | 🇵🇭 Philippines (PH) | 1 | 0 | 0.0 Mbps | `` |
-| 🇵🇹 Portugal (PT) | 1 | 1 | 15.4 Mbps | `vpn554714541` |
-| 🇷🇴 Romania (RO) | 1 | 1 | 0.9 Mbps | `opengw` |
+| 🇵🇹 Portugal (PT) | 1 | 0 | 0.0 Mbps | `` |
+| 🇷🇴 Romania (RO) | 1 | 0 | 0.0 Mbps | `` |
 | … | +2 more countries | | | |
 
 ## 🕵️ Claim vs. reality
@@ -110,18 +110,18 @@ The VPN Gate `Speed` field is whatever the server *claims*. Here is the truth, m
 
 | Server | Country | Claims | Delivers | Reality ratio |
 |---|---|---:|---:|---:|
-| `vpn981288372` | 🇯🇵 JP | 263 Mbps | 0.1 Mbps | 0% |
-| `vpn192397778` | 🇲🇲 MM | 80 Mbps | 0.1 Mbps | 0% |
+| `vpn322426921` | 🇰🇷 KR | 467 Mbps | 0.1 Mbps | 0% |
+| `vpn981288372` | 🇯🇵 JP | 263 Mbps | 0.2 Mbps | 0% |
 | `vpn771151831` | 🇰🇷 KR | 44 Mbps | 0.1 Mbps | 0% |
-| `public-vpn-219` | 🇯🇵 JP | 164 Mbps | 0.2 Mbps | 0% |
-| `vpn171221818` | 🇯🇵 JP | 632 Mbps | 1.0 Mbps | 0% |
-| `vpn410951036` | 🇯🇵 JP | 823 Mbps | 1.4 Mbps | 0% |
-| `vpn716109838` | 🇰🇷 KR | 624 Mbps | 1.2 Mbps | 0% |
-| `vpn266648216` | 🇺🇸 US | 434 Mbps | 0.9 Mbps | 0% |
-| `public-vpn-157` | 🇯🇵 JP | 4,732 Mbps | 11.1 Mbps | 0% |
-| `vpn294794153` | 🇺🇸 US | 157 Mbps | 0.4 Mbps | 0% |
+| `vpn703005952` | 🇯🇵 JP | 241 Mbps | 0.5 Mbps | 0% |
+| `public-vpn-209` | 🇯🇵 JP | 135 Mbps | 0.3 Mbps | 0% |
+| `public-vpn-198` | 🇯🇵 JP | 1,352 Mbps | 3.0 Mbps | 0% |
+| `vpn147772359` | 🇷🇺 RU | 213 Mbps | 0.5 Mbps | 0% |
+| `vpn936512836` | 🇰🇷 KR | 476 Mbps | 1.2 Mbps | 0% |
+| `public-vpn-194` | 🇯🇵 JP | 183 Mbps | 0.5 Mbps | 0% |
+| `public-vpn-95` | 🇯🇵 JP | 1,304 Mbps | 4.2 Mbps | 0% |
 
-Most honest of this round: `vpn977456594` (16 Mbps), `vpn293598259` (15 Mbps), `vpn611780108` (14 Mbps), `vpn168250961` (15 Mbps), `vpn266490849` (10 Mbps).
+Most honest of this round: `vpn611780108` (15 Mbps), `vpn168250961` (15 Mbps), `vpn210599978` (15 Mbps), `vpn346537516` (12 Mbps), `vpn672056740` (17 Mbps).
 
 ## 🧭 Exit-country mismatches
 
@@ -129,24 +129,27 @@ These servers are listed under one country but your traffic **actually exits som
 
 | Server | Claims | Actually exits via | Exit IP | Measured ↓ |
 |---|---|---|---|---:|
-| `opengw` | 🇷🇴 RO | 🇯🇵 JP | `187.15.134.160` | 0.9 Mbps |
-| `vpn192397778` | 🇲🇲 MM | 🇮🇳 IN | `167.103.2.108` | 0.1 Mbps |
-| `vpn429922709` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.7` | 0.9 Mbps |
-| `vpn801372263` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.13` | 0.9 Mbps |
+| `vpn232859084` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.21` | 0.7 Mbps |
+| `vpn192906546` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.16` | 0.8 Mbps |
 | `vpn981204829` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.12` | 0.8 Mbps |
-| `neko69` | 🇬🇧 GB | 🇵🇱 PL | `31.59.137.26` | 0.8 Mbps |
-| `vpn913610646` | 🇺🇸 US | 🇭🇰 HK | `103.212.187.24` | 0.4 Mbps |
-| `vpn192906546` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.16` | 0.7 Mbps |
-| `vpn695737487` | 🇩🇪 DE | 🇫🇮 FI | `65.109.137.25` | 0.9 Mbps |
+| `vpn265277249` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.9` | 0.7 Mbps |
+| `vpn430861125` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.10` | 0.7 Mbps |
+| `vpn429922709` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.7` | 0.8 Mbps |
+| `vpn363342659` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.8` | 0.8 Mbps |
+| `vpn256634230` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.22` | 0.7 Mbps |
+| `vpn801372263` | 🇭🇷 HR | 🇧🇬 BG | `150.40.105.13` | 0.8 Mbps |
+| `vpn913610646` | 🇺🇸 US | 🇭🇰 HK | `103.212.187.24` | 0.0 Mbps |
+| `vpn695737487` | 🇩🇪 DE | 🇫🇮 FI | `65.109.137.25` | 0.8 Mbps |
 
 ## 📈 History
 
-Alive % trend (last 23 runs): `██▇▆▆▁▄▅▄▃▄▁▂▃▄▂▃▃▁▂▃▁▂`
+Alive % trend (last 24 runs): `██▇▆▆▁▄▅▄▃▄▁▂▃▄▂▃▃▁▂▃▁▂▃`
 
-Avg measured speed (Mbps): `▆▇▁▇▂██▇▁▅▁▂▃▃▃▇▁▆▄▃▁▁▆`
+Avg measured speed (Mbps): `▆▇▁▇▂██▇▁▅▁▂▃▃▃▇▁▆▄▃▁▁▆▆`
 
 | Run at | Fetched | Alive | Alive % | Avg ↓ | Max ↓ | Mismatches |
 |---|---:|---:|---:|---:|---:|---:|
+| 2026-10-09 12:55:41 UTC | 94 | 772 | 45% | 11.3 | 94.1 | 9 |
 | 2026-10-09 05:33:49 UTC | 95 | 636 | 38% | 11.8 | 42.6 | 6 |
 | 2026-10-08 23:09:27 UTC | 97 | 449 | 28% | 9.0 | 36.8 | 6 |
 | 2026-10-08 13:09:03 UTC | 93 | 687 | 44% | 8.5 | 28.1 | 8 |
@@ -161,7 +164,6 @@ Avg measured speed (Mbps): `▆▇▁▇▂██▇▁▅▁▂▃▃▃▇▁�
 | 2026-10-05 19:57:29 UTC | 94 | 328 | 32% | 9.2 | 44.0 | 4 |
 | 2026-10-05 14:10:31 UTC | 95 | 434 | 45% | 8.8 | 52.2 | 4 |
 | 2026-10-05 05:01:08 UTC | 94 | 394 | 44% | 10.9 | 50.4 | 3 |
-| 2026-10-03 16:01:20 UTC | 98 | 368 | 45% | 8.8 | 33.1 | 4 |
 
 ## ⚙️ How the pipeline works
 
@@ -225,4 +227,4 @@ Field units: `Score` points · `Ping` ms · `Speed` bit/s (self-reported) · `Up
 Code: MIT. Data: originates from VPN Gate's public API — respect their terms.
 
 ---
-*Auto-generated by [run #38](https://github.com/G1010yzd10/vpngate-monitor/actions/runs/37933240784) at 2026-10-09 13:06:18 UTC. Next scheduled run: every 6h (00:00 / 06:00 / 12:00 / 18:00 UTC).*
+*Auto-generated by [run #39](https://github.com/G1010yzd10/vpngate-monitor/actions/runs/37999406988) at 2026-10-09 22:41:27 UTC. Next scheduled run: every 6h (00:00 / 06:00 / 12:00 / 18:00 UTC).*

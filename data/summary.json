@@ -1,120 +1,120 @@
 {
  "meta": {
-  "fetched_at": "2026-10-09T12:55:41Z",
+  "fetched_at": "2026-10-09T22:28:53Z",
   "source": "https://www.vpngate.net/api/iphone/",
   "http_status": 200,
-  "raw_bytes": 1320521,
-  "sha256": "e56ab0e4602e597ba76ddb4b9388e38ada03982b7282f8968f059c7ff2f31548",
-  "duration_s": 1.76,
+  "raw_bytes": 1320407,
+  "sha256": "a5322c0b5e8ee2e059edca3538c7d0ba067eb35445d41cf7614e6942fe383d09",
+  "duration_s": 1.59,
   "rows_parsed": 98,
   "rows_malformed": 0,
-  "rows_cleaned": 97,
-  "rows_dropped_invalid": 1,
+  "rows_cleaned": 96,
+  "rows_dropped_invalid": 2,
   "removed_exact_duplicates": 0,
-  "removed_same_ip_duplicates": 3,
-  "unique_servers": 94,
-  "with_endpoint": 94,
-  "registry_size": 1727,
-  "test_plan_size": 1727,
-  "test_plan_current": 94,
+  "removed_same_ip_duplicates": 0,
+  "unique_servers": 96,
+  "with_endpoint": 96,
+  "registry_size": 1785,
+  "test_plan_size": 1785,
+  "test_plan_current": 96,
   "recall_days": 30
  },
- "fetched": 94,
- "tested": 1727,
- "alive": 772,
- "dead": 955,
+ "fetched": 96,
+ "tested": 1785,
+ "alive": 481,
+ "dead": 1304,
  "untested": 0,
- "alive_pct": 44.70179502026636,
- "usability": 69.14893617021276,
- "avg_mbps": 11.341376623376624,
- "median_mbps": 13.0,
- "max_mbps": 94.11,
- "mismatches": 9,
- "historical_known": 1633,
- "revived": 707,
- "avg_connect_ms": 2894.9080310880827,
+ "alive_pct": 26.946778711484594,
+ "usability": 41.666666666666664,
+ "avg_mbps": 11.549266247379455,
+ "median_mbps": 13.82,
+ "max_mbps": 28.65,
+ "mismatches": 11,
+ "historical_known": 1689,
+ "revived": 441,
+ "avg_connect_ms": 2928.1143451143453,
  "fastest": [
   {
-   "HostName": "vpn132949429",
-   "IP": "47.155.228.164",
+   "HostName": "vpn729038920",
+   "IP": "38.49.242.56",
    "CountryShort": "US",
    "in_current_list": false,
-   "download_mbps": 94.11
+   "download_mbps": 28.65
   },
   {
-   "HostName": "vpn908512202",
-   "IP": "162.224.160.11",
-   "CountryShort": "US",
-   "in_current_list": false,
-   "download_mbps": 47.98
-  },
-  {
-   "HostName": "vpn372889393",
-   "IP": "131.147.172.243",
+   "HostName": "vpn705687526",
+   "IP": "147.192.42.21",
    "CountryShort": "JP",
-   "in_current_list": false,
-   "download_mbps": 25.41
-  },
-  {
-   "HostName": "vpn325696545",
-   "IP": "39.111.138.50",
-   "CountryShort": "JP",
-   "in_current_list": false,
-   "download_mbps": 24.92
-  },
-  {
-   "HostName": "vpn980413265",
-   "IP": "138.64.86.7",
-   "CountryShort": "JP",
-   "in_current_list": false,
-   "download_mbps": 24.37
-  },
-  {
-   "HostName": "vpn169318955",
-   "IP": "138.64.86.41",
-   "CountryShort": "JP",
-   "in_current_list": false,
-   "download_mbps": 24.36
+   "in_current_list": true,
+   "download_mbps": 26.43
   },
   {
    "HostName": "vpn821116418",
    "IP": "138.64.97.146",
    "CountryShort": "JP",
    "in_current_list": false,
-   "download_mbps": 24.09
+   "download_mbps": 25.38
   },
   {
-   "HostName": "vpn736046374",
-   "IP": "92.202.136.79",
+   "HostName": "vpn679218486",
+   "IP": "124.209.226.195",
    "CountryShort": "JP",
    "in_current_list": false,
-   "download_mbps": 23.57
-  },
-  {
-   "HostName": "vpn751506395",
-   "IP": "219.104.167.40",
-   "CountryShort": "JP",
-   "in_current_list": false,
-   "download_mbps": 23.52
+   "download_mbps": 24.84
   },
   {
    "HostName": "vpn165481165",
    "IP": "133.149.94.50",
    "CountryShort": "JP",
    "in_current_list": false,
-   "download_mbps": 23.25
+   "download_mbps": 23.84
+  },
+  {
+   "HostName": "vpn693017146",
+   "IP": "218.131.41.95",
+   "CountryShort": "JP",
+   "in_current_list": false,
+   "download_mbps": 23.3
+  },
+  {
+   "HostName": "vpn801078316",
+   "IP": "138.64.96.119",
+   "CountryShort": "JP",
+   "in_current_list": false,
+   "download_mbps": 23.27
+  },
+  {
+   "HostName": "vpn178005109",
+   "IP": "114.184.115.158",
+   "CountryShort": "JP",
+   "in_current_list": false,
+   "download_mbps": 23.27
+  },
+  {
+   "HostName": "vpn537261568",
+   "IP": "220.147.116.46",
+   "CountryShort": "JP",
+   "in_current_list": false,
+   "download_mbps": 23.1
+  },
+  {
+   "HostName": "vpn701289290",
+   "IP": "115.163.40.198",
+   "CountryShort": "JP",
+   "in_current_list": false,
+   "download_mbps": 23.02
   }
  ],
  "failure_breakdown": {
-  "connect_timeout": 868,
-  "auth_failed": 80,
-  "egress_verification_failed": 7
+  "connect_timeout": 1188,
+  "auth_failed": 106,
+  "egress_verification_failed": 10
  },
- "runner_ip": "172.182.201.171",
+ "runner_ip": "20.57.223.162",
  "run": {
-  "number": "38",
-  "url": "https://github.com/G1010yzd10/vpngate-monitor/actions/runs/37933240784",
+  "number": "39",
+  "url": "https://github.com/G1010yzd10/vpngate-monitor/actions/runs/37999406988",
   "event": "schedule",
-  "generated_at": "2026-10-09T13:06:18Z"
+  "generated_at": "2026-10-09T22:41:27Z"
  }
 }
