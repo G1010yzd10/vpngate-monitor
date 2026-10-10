@@ -1,6 +1,6 @@
 {
  "schemaVersion": 1,
  "label": "verified alive",
- "message": "730/1,845 tested (40%)",
- "color": "yellow"
+ "message": "855/1,905 tested (45%)",
+ "color": "green"
 }
